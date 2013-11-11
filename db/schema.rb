@@ -11,6 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20131111022328) do
+
+  create_table "search_hotels", :force => true do |t|
+    t.string   "city"
+    t.string   "address"
+    t.float    "min_daily_rate"
+    t.float    "max_daily_rate"
+    t.float    "min_star_rating"
+    t.float    "max_star_rating"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
 end

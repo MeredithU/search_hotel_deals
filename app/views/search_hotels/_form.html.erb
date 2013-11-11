@@ -1,0 +1,13 @@
+<%= simple_form_for @search_hotel do |f| %>
+  <p>
+    <%= f.input :city, label: 'Where ' %>
+  </p>
+  <p>
+    <%= f.input :min_daily_rate, label: 'Daily Rate ($) ', as: :string, required: false, placeholder: 'Minimum' %> - <%= f.input :max_daily_rate, label: false, as: :string, required: false, placeholder: 'Maximum' %>
+  </p>
+  <p>
+    <%= f.input :min_star_rating, label: 'Star Rating ', required: false, collection: 1..5 %> - <%= f.input :max_star_rating, label: false, required: false, collection: 1..5  %>
+  </p>
+
+  <%= f.submit 'Search'%>
+<% end %>
