@@ -1,4 +1,8 @@
 HotelSearch::Application.routes.draw do
+
+  root to: "search_hotels#index"
+  resources :search_hotels
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
