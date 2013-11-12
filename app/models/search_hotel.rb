@@ -20,7 +20,6 @@ class SearchHotel < ActiveRecord::Base
     #Rails.logger.info results.inspect
     hotel_result = []
     results.each do |result|
-      puts result
       hotel = HotelResult.new
       hotel.check_in_date     = result["checkInDate"]
       hotel.check_out_date    = result["checkOutDate"]
@@ -34,6 +33,7 @@ class SearchHotel < ActiveRecord::Base
       hotel.name              = result["name"]
       hotel.original_rate     = result["originalPricePerNight"]
       hotel.promo_rate        = result["pricePerNight"]
+      hotel.search_hotel_id   = id
       hotel.save
 
       hotel_result << result
