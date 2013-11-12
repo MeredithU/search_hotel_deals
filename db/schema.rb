@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111064508) do
+ActiveRecord::Schema.define(:version => 20131112220419) do
 
   create_table "hotel_results", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20131111064508) do
     t.string   "image_url"
     t.float    "original_rate"
     t.float    "promo_rate"
-    t.string   "hotel_description"
+    t.text     "hotel_description"
     t.integer  "hotel_id"
     t.integer  "length_of_stay"
     t.datetime "check_in_date"

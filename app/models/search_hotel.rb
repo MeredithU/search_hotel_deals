@@ -24,7 +24,7 @@ class SearchHotel < ActiveRecord::Base
       hotel = HotelResult.new
       hotel.check_in_date     = result["checkInDate"]
       hotel.check_out_date    = result["checkOutDate"]
-      #hotel.hotel_description = result["description"]
+      hotel.hotel_description = result["description"]
       hotel.hotel_id          = result["hotelId"]
       hotel.hotel_latitude    = result["latitude"]
       hotel.hotel_longitude   = result["longitude"]
