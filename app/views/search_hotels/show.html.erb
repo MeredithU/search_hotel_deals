@@ -27,7 +27,6 @@
       <% if (hotel_result.hotel_star_rating >= @search_hotel.min_star_rating && hotel_result.hotel_star_rating <= @search_hotel.max_star_rating) %>
         <!-- Check to see if hotel daily rate is within search criteria -->
         <% if (hotel_result.original_rate >= @search_hotel.min_daily_rate && hotel_result.original_rate <= @search_hotel.max_daily_rate) %>
-
           <div class="cta">
             <div class="cta-inner">
               <div class="col-text">
@@ -40,7 +39,9 @@
                 <!-- Display hotel name, star rating and a show details button -->
                 <div class="col-md-8">
                   <h3 class="headline"><%= hotel_result.name %></h3>
-                  <%= hotel_result.hotel_star_rating %> out of 5 star
+                  <span class="stars">
+                    <%= hotel_result.hotel_star_rating %>
+                  </span>
                   <div id="button" class="col-btn">
                     <a class="btn btn-large btn-danger">Show Details</a>
                   </div><!-- button -->
@@ -48,21 +49,20 @@
 
                 <!-- Display hotel original price and promo price if applicable -->
                 <div class="col-md-2">
-                  <% if (hotel_result.promo_rate != nil) %>
-                    <div class="deal-text"><DEAL!</div>
+                  <% if (hotel_result.promo_amount != 0.0) %>
+                    <div class="deal-text">DEAL!</div>
                     <div class="glyphicon glyphicon-usd original-price">
-                      <%= hotel_result.original_rate %>
+                      <%= hotel_result.original_rate.round %>
                     </div>
                     <div class="glyphicon glyphicon-usd">
-                      <%= hotel_result.promo_rate %>
+                      <%= hotel_result.promo_rate.round %>
                     </div>
                   <% else %>
                     <div class="glyphicon glyphicon-usd">
-                      <%= hotel_result.original_rate %>
+                      <%= hotel_result.original_rate.round %>
                     </div>
                   <% end %>
                 </div><!-- col-md-2 -->
-              </div><!-- row -->
 
               <div class="clearfix"></div>
 
@@ -91,6 +91,21 @@
     <% end %>
   </div><!-- row -->
 </div><!-- search-results -->
+
+
+<!-- Display stars instead of numerical values -->
+<script>
+  $(function() {
+      $('span.stars').stars();
+  });
+</script>
+
+<!-- Hide / Show details -->
+<script>
+  $("#button").click(function() {
+    $("#show-details").toggle();
+  });
+</script>
 
 
 

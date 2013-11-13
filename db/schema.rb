@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112220419) do
+ActiveRecord::Schema.define(:version => 20131113020945) do
 
   create_table "hotel_results", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20131112220419) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "search_hotel_id"
+    t.float    "promo_amount"
   end
 
   create_table "search_hotels", :force => true do |t|

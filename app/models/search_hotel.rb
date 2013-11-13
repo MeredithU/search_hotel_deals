@@ -33,6 +33,7 @@ class SearchHotel < ActiveRecord::Base
       hotel.name              = result["name"]
       hotel.original_rate     = result["originalPricePerNight"]
       hotel.promo_rate        = result["pricePerNight"]
+      hotel.promo_amount      = result["promotionAmount"]
       hotel.search_hotel_id   = id
       hotel.save
 

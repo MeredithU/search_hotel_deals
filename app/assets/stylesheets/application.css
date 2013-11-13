@@ -32,7 +32,7 @@
   font-size: 16px;
 }
 
-/***** Search Results Page *****/
+/***** Hotel Results Page *****/
 
 .hotel-photo img {
   width: 100px;
@@ -92,6 +92,23 @@
 .cta .col-text + .col-btn,
 .cta .col-btn + .col-btn {
   padding-left: 10px;
+}
+
+/***** Stars on Results Page *****/
+
+span.stars, span.stars span {
+    display: block;
+    background: url(stars.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.stars {
+  padding-bottom: 30px;
+}
+
+span.stars span {
+    background-position: 0 0;
 }
 
 

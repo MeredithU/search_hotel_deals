@@ -11,6 +11,7 @@ class HotelResult < ActiveRecord::Base
                   :name,
                   :original_rate,
                   :promo_rate,
+                  :promo_amount,
                   :search_hotel_id
 
   belongs_to :search_hotel
