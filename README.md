@@ -2,7 +2,7 @@
 
 ## Check It Out On Heroku
 
-
+http://meredith-expedia-challenge.herokuapp.com/
 
 ## Set Up
 
