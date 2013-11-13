@@ -19,6 +19,5 @@ class SearchHotelsController < ApplicationController
 
   def show
     @search_hotel = SearchHotel.find(params[:id])
-    @hotel_result = HotelResult.find(params[:id])
   end
 end

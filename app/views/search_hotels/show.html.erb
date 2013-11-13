@@ -90,11 +90,11 @@
 
                       <!-- Button to trigger modal -->
                       <div id="button" class="col-btn">
-                        <a class="btn btn-md btn-success" data-toggle="modal" data-target="#myModal">Book it!</a>
+                        <a class="btn btn-md btn-success" data-toggle="modal" data-target="#myModal<%= index.to_s %>">Book it!</a>
                       </div><!-- button -->
 
                       <!-- Modal -->
-                      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal fade" id="myModal<%= index.to_s %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -136,10 +136,6 @@
   });
 </script>
 
-<!-- Launch modal -->
-<script>
-  $('#myModal').modal(options)
-</script>
 
 
 
