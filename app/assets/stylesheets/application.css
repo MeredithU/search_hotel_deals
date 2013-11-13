@@ -12,7 +12,9 @@
  *= require_tree .
  */
 
- /***** Home Page *****/
+
+
+/***** Home Page *****/
 
 .jumbotron {
   width: 450px;
@@ -21,6 +23,7 @@
   float: left;
   margin-left: 30px;
   opacity: .85;
+  font-family: 'Quicksand';
 }
 
 .jumbotron h2 {
@@ -34,19 +37,47 @@
 
 /***** Hotel Results Page *****/
 
+.header {
+  text-align: center;
+  color: #343434;
+  font-family: 'nexa_boldregular', Arial, Helvetica, sans-serif;
+}
+
+.header span {
+  font-size: 16px;
+
+  padding-right: 50px;
+}
+
+.nav {
+  padding-top: 20px;
+}
+
 .hotel-photo img {
   width: 100px;
   height: 100px;
 }
 
 .deal-text {
-  color: #F00;
+  color: #fc4e60;
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
+}
+
+.hotel-price {
+  text-align: center;
 }
 
 .original-price {
   text-decoration: line-through;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.highlighted-price span {
+  font-size: 36px;
+  color: #00549e;
 }
 
 
@@ -92,6 +123,21 @@
 .cta .col-text + .col-btn,
 .cta .col-btn + .col-btn {
   padding-left: 10px;
+}
+
+
+.col-md-8 .description p {
+  line-height: 1.5em;
+  padding-right: 80px;
+}
+
+.col-md-8 p {
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+.maps img {
+  padding-top: 50px;
 }
 
 /***** Stars on Results Page *****/
