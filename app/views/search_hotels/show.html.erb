@@ -18,11 +18,22 @@
       <p> Daily Nightly Rate: <%= @search_hotel.min_daily_rate %> - <%= @search_hotel.max_daily_rate %></p>
     </div><!-- col-md-4 -->
   </div><!-- row -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="filter" data-label="Show: ">
+        <ul>
+          <li class="active"><a href="#" data-filter="*">All</a></li>
+          <li><a href="#" data-filter=".deals">Deals</a></li>
+        </ul>
+      </div><!-- filter -->
+    </div><!-- col-md-12 -->
+  </div><!-- row -->
 </div><!-- search-criteria -->
 
 <div id="search-results" class="container">
-  <div class="row">
-    <% @search_hotel.hotel_results.each do |hotel_result| %>
+  <div id="accordion" class="row">
+    <% @search_hotel.hotel_results.each_with_index do |hotel_result, index| %>
       <!-- Check to see if hotel star rating is within search criteria -->
       <% if (hotel_result.hotel_star_rating >= @search_hotel.min_star_rating && hotel_result.hotel_star_rating <= @search_hotel.max_star_rating) %>
         <!-- Check to see if hotel daily rate is within search criteria -->
@@ -42,9 +53,9 @@
                   <span class="stars">
                     <%= hotel_result.hotel_star_rating %>
                   </span>
-                  <div id="button" class="col-btn">
-                    <a class="btn btn-large btn-danger">Show Details</a>
-                  </div><!-- button -->
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index.to_s %>">
+                    Show Details
+                  </a>
                 </div><!-- col-md-8 -->
 
                 <!-- Display hotel original price and promo price if applicable -->
@@ -64,24 +75,29 @@
                   <% end %>
                 </div><!-- col-md-2 -->
 
-              <div class="clearfix"></div>
+                <div class="clearfix"></div>
 
-              <div class="col-md-2"></div>
+                <div id="collapse<%= index.to_s %>" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="col-md-2"></div>
 
-                <!-- Additional hotel information to be shown after Show Details button is pressed -->
-                <div id="show-details">
-                  <div class="col-md-8">
-                    <p>Description: <%= hotel_result.hotel_description %></p>
-                    <p>Minimum length of stay: <%= hotel_result.length_of_stay %></p>
-                    <p class="glyphicon glyphicon-calendar"></p>Check In Date: <%= hotel_result.check_in_date %>
-                    <p class="glyphicon glyphicon-calendar"></p>Check Out Date: <%= hotel_result.check_out_date %>
-                  </div><!-- col-md-8 -->
+                    <!-- Additional hotel information to be shown after the Show Details link is clicked -->
+                    <div class="col-md-8">
+                      <p>Description: <%= hotel_result.hotel_description %></p>
+                      <p>Minimum length of stay: <%= hotel_result.length_of_stay %></p>
+                      <p class="glyphicon glyphicon-calendar"></p>Check In Date: <%= hotel_result.check_in_date %>
+                      <p class="glyphicon glyphicon-calendar"></p>Check Out Date: <%= hotel_result.check_out_date %>
+                      <div id="button" class="col-btn">
+                        <a class="btn btn-md btn-success">Book it!</a>
+                      </div><!-- button -->
+                    </div><!-- col-md-8 -->
 
-                  <!-- Display static google map of hotel location -->
-                  <div class="col-md-2">
-                    <img src='http://maps.googleapis.com/maps/api/staticmap?markers=<%= hotel_result.hotel_latitude %>,<%= hotel_result.hotel_longitude %>&zoom=11&size=150x150&sensor=false'>
-                  </div><!-- col-md-2 -->
-                </div><!-- show-details -->
+                    <!-- Display static google map of hotel location -->
+                    <div class="col-md-2">
+                      <img src='http://maps.googleapis.com/maps/api/staticmap?markers=<%= hotel_result.hotel_latitude %>,<%= hotel_result.hotel_longitude %>&zoom=11&size=150x150&sensor=false'>
+                    </div><!-- col-md-2 -->
+                  </div><!-- panel-body -->
+                </div><!-- panel-collapse -->
 
               </div><!-- col-text -->
             </div><!-- cta-inner -->
@@ -97,13 +113,6 @@
 <script>
   $(function() {
       $('span.stars').stars();
-  });
-</script>
-
-<!-- Hide / Show details -->
-<script>
-  $("#button").click(function() {
-    $("#show-details").toggle();
   });
 </script>
 

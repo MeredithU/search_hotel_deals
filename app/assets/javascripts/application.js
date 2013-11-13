@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 
+// Displaying stars instead of numerical values
 
 $.fn.stars = function() {
     return $(this).each(function() {
