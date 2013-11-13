@@ -7,8 +7,9 @@
       <h3>Hotel Search Results</h3>
       <ul class="nav">
         <span><b>City: </b><%= @search_hotel.city %></span>
-        <span><b>Star Rating: </b><%= @search_hotel.min_star_rating %> - <%= @search_hotel.max_star_rating %></span>
+        <span><b>Star Rating: </b><%= @search_hotel.min_star_rating.round %> - <%= @search_hotel.max_star_rating.round %></span>
         <span><b>Daily Nightly Rate: </b>$<%= @search_hotel.min_daily_rate %> - $<%= @search_hotel.max_daily_rate %></span>
+        <span><%= link_to "New Search", :action => "index" %></span>
       </ul>
     </div><!-- col-md-12 -->
   </div><!-- row -->
