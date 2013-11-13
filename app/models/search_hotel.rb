@@ -8,6 +8,8 @@ class SearchHotel < ActiveRecord::Base
                   :min_daily_rate,
                   :min_star_rating
 
+  validates :city, presence: true
+
   has_many :hotel_results
 
   include HTTParty

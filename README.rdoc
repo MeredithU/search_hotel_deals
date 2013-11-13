@@ -1,3 +1,0 @@
-==Expedia Hotel Deals API
-
-
