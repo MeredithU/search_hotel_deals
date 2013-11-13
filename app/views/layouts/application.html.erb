@@ -1,14 +1,35 @@
 <!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie lt-ie9 lt-ie8 lt-ie7 ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie lt-ie9 lt-ie8 ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie lt-ie9 ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
 <html>
 <head>
-  <title>HotelSearch</title>
+  <title>Search for Hotel Deals</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <!-- Twitter Bootstrap CSS -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
 <%= yield %>
+
+<!-- Display Background Image on Home Page -->
+  <script>
+  if (window.location.pathname == '/')
+  {
+    $(document).ready(function() {
+      var images = ['yellow-couch-on-white-wall-l.jpg', 'san-francisco-traffic-l.jpg'];
+      $('body').css({'background-image': 'url(assets/' + images[Math.floor(Math.random() * images.length)] + ')', 'background-size': 'cover'});
+    })
+  }
+  </script>
 
 </body>
 </html>

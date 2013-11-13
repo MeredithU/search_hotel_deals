@@ -1,1 +1,105 @@
 <h2>Hotel Results</h2>
+
+<!-- Display the search criteria -->
+<div id="search-criteria" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Search Criteria</h2>
+    </div><!-- col-md-12 -->
+  </div><!-- row -->
+  <div class="row">
+    <div class="col-md-4">
+      <p> City: <%= @search_hotel.city %></p>
+    </div><!-- col-md-4 -->
+    <div class="col-md-4">
+      <p> Star Rating: <%= @search_hotel.min_star_rating %> - <%= @search_hotel.max_star_rating %></p>
+    </div><!-- col-md-4 -->
+    <div class="col-md-4">
+      <p> Daily Nightly Rate: <%= @search_hotel.min_daily_rate %> - <%= @search_hotel.max_daily_rate %></p>
+    </div><!-- col-md-4 -->
+  </div><!-- row -->
+</div><!-- search-criteria -->
+
+<div id="search-results" class="container">
+  <div class="row">
+    <% @search_hotel.hotel_results.each do |hotel_result| %>
+      <!-- Check to see if hotel star rating is within search criteria -->
+      <% if (hotel_result.hotel_star_rating >= @search_hotel.min_star_rating && hotel_result.hotel_star_rating <= @search_hotel.max_star_rating) %>
+        <!-- Check to see if hotel daily rate is within search criteria -->
+        <% if (hotel_result.original_rate >= @search_hotel.min_daily_rate && hotel_result.original_rate <= @search_hotel.max_daily_rate) %>
+
+          <div class="cta">
+            <div class="cta-inner">
+              <div class="col-text">
+
+                <!-- Display hotel photo -->
+                <div class="col-md-2 hotel-photo">
+                  <img src='<%= hotel_result.image_url %>'>
+                </div><!-- col-md-2 -->
+
+                <!-- Display hotel name, star rating and a show details button -->
+                <div class="col-md-8">
+                  <h3 class="headline"><%= hotel_result.name %></h3>
+                  <%= hotel_result.hotel_star_rating %> out of 5 star
+                  <div id="button" class="col-btn">
+                    <a class="btn btn-large btn-danger">Show Details</a>
+                  </div><!-- button -->
+                </div><!-- col-md-8 -->
+
+                <!-- Display hotel original price and promo price if applicable -->
+                <div class="col-md-2">
+                  <% if (hotel_result.promo_rate != nil) %>
+                    <div class="deal-text"><DEAL!</div>
+                    <div class="glyphicon glyphicon-usd original-price">
+                      <%= hotel_result.original_rate %>
+                    </div>
+                    <div class="glyphicon glyphicon-usd">
+                      <%= hotel_result.promo_rate %>
+                    </div>
+                  <% else %>
+                    <div class="glyphicon glyphicon-usd">
+                      <%= hotel_result.original_rate %>
+                    </div>
+                  <% end %>
+                </div><!-- col-md-2 -->
+              </div><!-- row -->
+
+              <div class="clearfix"></div>
+
+              <div class="col-md-2"></div>
+
+                <!-- Additional hotel information to be shown after Show Details button is pressed -->
+                <div id="show-details">
+                  <div class="col-md-8">
+                    <p>Description: <%= hotel_result.hotel_description %></p>
+                    <p>Minimum length of stay: <%= hotel_result.length_of_stay %></p>
+                    <p class="glyphicon glyphicon-calendar"></p>Check In Date: <%= hotel_result.check_in_date %>
+                    <p class="glyphicon glyphicon-calendar"></p>Check Out Date: <%= hotel_result.check_out_date %>
+                  </div><!-- col-md-8 -->
+
+                  <!-- Display static google map of hotel location -->
+                  <div class="col-md-2">
+                    <img src='http://maps.googleapis.com/maps/api/staticmap?markers=<%= hotel_result.hotel_latitude %>,<%= hotel_result.hotel_longitude %>&zoom=11&size=150x150&sensor=false'>
+                  </div><!-- col-md-2 -->
+                </div><!-- show-details -->
+
+              </div><!-- col-text -->
+            </div><!-- cta-inner -->
+          </div><!-- cta -->
+        <% end %>
+      <% end %>
+    <% end %>
+  </div><!-- row -->
+</div><!-- search-results -->
+
+
+
+
+
+
+
+
+
+
+
+

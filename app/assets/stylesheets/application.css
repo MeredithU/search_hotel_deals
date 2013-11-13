@@ -11,3 +11,104 @@
  *= require_self
  *= require_tree .
  */
+
+ /***** Home Page *****/
+
+.jumbotron {
+  width: 450px;
+  height: 100%;
+  border-radius: 20px;
+  float: left;
+  margin-left: 30px;
+  opacity: .85;
+}
+
+.jumbotron h2 {
+  width: 300px;
+  line-height: 1.2em;
+}
+
+.jumbotron p {
+  font-size: 16px;
+}
+
+/***** Search Results Page *****/
+
+.hotel-photo img {
+  width: 100px;
+  height: 100px;
+}
+
+.deal-text {
+  color: #F00;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.original-price {
+  text-decoration: line-through;
+}
+
+
+.cta {
+  margin: 50px 0 30px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.cta p {
+  margin: 0;
+}
+
+.cta .headline {
+  font-family: 'nexa_boldregular', Arial, Helvetica, sans-serif;
+  color: #000000;
+  margin: 0 0 10px;
+  line-height: 1;
+}
+
+.cta .cta-inner {
+  display: table;
+  width: 100%;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cta .col-text,
+.cta .col-btn {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.cta .col-btn {
+  text-align: right;
+}
+
+.cta .col-text + .col-text,
+.cta .col-btn + .col-text,
+.cta .col-text + .col-btn,
+.cta .col-btn + .col-btn {
+  padding-left: 10px;
+}
+
+
+/***** Footer *****/
+
+.footer {
+  width: 100%;
+  height: 30px;
+  background-color: #000;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  padding-top: 7px;
+  opacity: .85;
+}
+
+.footer a {
+  color: #fff;
+}
+
